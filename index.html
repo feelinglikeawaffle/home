@@ -18,7 +18,7 @@
         letter-spacing: 1px;
     }
 
-    .menu, .changelog-menu {
+    .menu {
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -26,7 +26,7 @@
         margin: auto;
     }
 
-    .game-btn, .tab-btn {
+    .game-btn {
         padding: 15px;
         background: #222;
         border: 2px solid #444;
@@ -37,119 +37,28 @@
         transition: 0.2s;
     }
 
-    .game-btn:hover, .tab-btn:hover {
+    .game-btn:hover {
         background: #444;
         border-color: #888;
-    }
-
-    #changelog-container {
-        margin-top: 40px;
-        display: none;
-    }
-
-    .log-box {
-        background: #222;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 20px;
-        text-align: left;
-        border: 1px solid #444;
-        white-space: pre-line;
-    }
-
-    .back-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: #333;
-        border: 1px solid #555;
-        border-radius: 6px;
-        cursor: pointer;
-        color: white;
     }
 </style>
 </head>
 <body>
 
-<h1>feelinglikeawaffle 2026</h1>
+<h1>feelinglikeawaffle©
+</h1>
 
-<!-- MAIN GAME MENU -->
 <div class="menu" id="menu">
     <!-- ADD YOUR LINKS HERE -->
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/pong/')">Chaos Pong</button>
-    <button class="game-btn" onclick="https://feelinglikeawaffle.github.io/minesweeper/')">Decksweeper</button>
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/numbergame/')">(broken) Number Game</button>
-</div>
-
-<!-- CHANGELOG SECTION -->
-<div id="changelog-container">
-    <h2>Changelog</h2>
-    <div class="changelog-menu" id="changelog-tabs"></div>
-    <div class="log-box" id="log-box"></div>
-    <button class="back-btn" onclick="goBack()">Back</button>
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/pong/')">Pong Deckbuilder</button>
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/dungeon64/')">ALPHA Dungeon 64</button>
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/minesweeper/')">Minesweeper Deckbuilder</button>
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/numbergame/')">Infinite Math (broken)</button>
 </div>
 
 <script>
 function openGame(url) {
     window.open(url, "_blank");
-}
-
-// ------------------------------
-// EASY CHANGELOG DATA
-// Add logs here only.
-// Keys MUST match button text.
-// ------------------------------
-const CHANGELOGS = {
-    "Chaos Pong": [
-        "v2.2 – Added Mobie Mode\n"
-    ],
-    "Decksweeper": [
-        "b2.2 – Added flag specific cards.\n"
-    ],
-    "Minesweeper+": [
-        "??? – Abandoned\n"
-    ]
-};
-
-// ------------------------------
-// AUTO‑GENERATE CHANGELOG TABS
-// ------------------------------
-window.onload = () => {
-    const menuButtons = document.querySelectorAll(".game-btn");
-    const tabContainer = document.getElementById("changelog-tabs");
-
-    menuButtons.forEach(btn => {
-        const name = btn.innerText;
-
-        const tab = document.createElement("button");
-        tab.className = "tab-btn";
-        tab.innerText = name;
-        tab.onclick = () => showLog(name);
-
-        tabContainer.appendChild(tab);
-    });
-
-    // Add a button to open changelog menu
-    const changelogBtn = document.createElement("button");
-    changelogBtn.className = "game-btn";
-    changelogBtn.innerText = "View Changelog";
-    changelogBtn.onclick = openChangelog;
-    document.getElementById("menu").appendChild(changelogBtn);
-};
-
-function openChangelog() {
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("changelog-container").style.display = "block";
-}
-
-function goBack() {
-    document.getElementById("menu").style.display = "flex";
-    document.getElementById("changelog-container").style.display = "none";
-    document.getElementById("log-box").innerText = "";
-}
-
-function showLog(name) {
-    const box = document.getElementById("log-box");
-    box.innerText = CHANGELOGS[name]?.join("\n\n") || "No logs yet.";
 }
 </script>
 
