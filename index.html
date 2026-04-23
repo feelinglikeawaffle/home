@@ -41,19 +41,46 @@
         background: #444;
         border-color: #888;
     }
+
+    /* TAG STYLES */
+    .tag {
+        display: inline-block;
+        padding: 3px 8px;
+        margin-left: 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .tag-release { background: #2ecc71; color: #000; }        /* green */
+    .tag-beta { background: #3498db; color: #000; }           /* blue */
+    .tag-dev { background: #f1c40f; color: #000; }            /* yellow */
+    .tag-playtest { background: #9b59b6; color: #fff; }       /* purple */
+    .tag-deprecated { background: #e74c3c; color: #fff; }     /* red */
 </style>
 </head>
 <body>
 
-<h1>feelinglikeawaffle©
-</h1>
+<h1>feelinglikeawaffle©</h1>
 
 <div class="menu" id="menu">
     <!-- ADD YOUR LINKS HERE -->
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/pong/')">Pong Deckbuilder</button>
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/dungeon64/')">ALPHA Dungeon 64</button>
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/minesweeper/')">Minesweeper Deckbuilder</button>
-    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/numbergame/')">Infinite Math (broken)</button>
+
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/pong/')">
+        Pong Deckbuilder <span class="tag tag-beta">BETA</span>
+    </button>
+
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/dungeon64/')">
+        ALPHA Dungeon 64 <span class="tag tag-dev">IN DEVELOPMENT</span>
+    </button>
+
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/minesweeper/')">
+        Minesweeper Deckbuilder <span class="tag tag-release">RELEASE</span>
+    </button>
+
+    <button class="game-btn" onclick="openGame('https://feelinglikeawaffle.github.io/numbergame/')">
+        Infinite Math (broken) <span class="tag tag-deprecated">DEPRECIATED</span>
+    </button>
 </div>
 
 <script>
